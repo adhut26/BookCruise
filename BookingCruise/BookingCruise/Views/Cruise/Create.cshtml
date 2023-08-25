@@ -1,0 +1,56 @@
+﻿@model CruiseBook
+@{
+    ViewData["Title"] = "Create";
+    string token = @Html.AntiForgeryToken().ToString();
+}
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Create Booking</h2>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Arrival"></label>
+        <input asp-for="Arrival" class="form-control" />
+        <span asp-validation-for="Arrival" class="text-bg-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label asp-for="Destination"></label>
+        <input asp-for="Destination" class="form-control" />
+        <span asp-validation-for="Destination" class="text-bg-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label asp-for="Membership"></label>
+        <input asp-for="Membership" class="form-control" />
+        <span asp-validation-for="Membership" class="text-bg-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label asp-for="amount"></label>
+        <input asp-for="amount" class="form-control" />
+        <span asp-validation-for="amount" class="text-bg-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="CreatedOn"></label>
+        <input id="CreatedOn" type="date" asp-for="CreatedOn" class="form-control" />
+        <span asp-validation-for="CreatedOn" class="text-bg-danger"></span>
+    </div>
+
+    <button id="createSubmit" type="submit" class="btn-secondary" style="width:150px"> Create Booking
+    </button>
+</form>
+    <a asp-controller="Cruise" asp-action="Index" class="btn btn-secondary" style="width:80">
+       Back to List
+    </a>
+    <script>
+    var requestVerificationToken = "@token";
+</script>
